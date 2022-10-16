@@ -7,12 +7,15 @@
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/about">Acerca de</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active"
+                   th:href="@{/usuarios/{id}/tareas(id=${tarea.usuario.id})}">Tareas<span
+                        class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="#">Features</a>
                 <a class="nav-item nav-link" href="#">Pricing</a>
                 <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,12 +29,12 @@
 
     <form method="post" th:action="@{/tareas/{id}/editar(id=${tarea.id})}" th:object="${tareaData}">
         <div class="col-6">
-        <div class="form-group">
-            <label for="titulo">Título de la tarea:</label>
-            <input class="form-control" id="titulo" name="titulo" required th:field="*{titulo}" type="text"/>
-        </div>
-        <button class="btn btn-primary" type="submit">Modificar tarea</button>
-        <a class="btn btn-link" th:href="@{/usuarios/{id}/tareas(id=${tarea.usuario.id})}">Cancelar</a>
+            <div class="form-group">
+                <label for="titulo">Título de la tarea:</label>
+                <input class="form-control" id="titulo" name="titulo" required th:field="*{titulo}" type="text"/>
+            </div>
+            <button class="btn btn-primary" type="submit">Modificar tarea</button>
+            <a class="btn btn-link" th:href="@{/usuarios/{id}/tareas(id=${tarea.usuario.id})}">Cancelar</a>
         </div>
     </form>
 </div>

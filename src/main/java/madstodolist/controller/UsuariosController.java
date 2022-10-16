@@ -2,6 +2,7 @@ package madstodolist.controller;
 
 import madstodolist.model.Usuario;
 import madstodolist.service.UsuarioService;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +27,7 @@ public class UsuariosController {
     }
 
     @RequestMapping("/registrados/{id}")
-    public String getUsuarios(Model model, @PathVariable(value = "id") Long id){
+    public String getUsuarios(@NotNull Model model, @PathVariable(value = "id") Long id){
        Usuario usuario= usuarioService.findById(id);
        model.addAttribute("usuario",usuario);
        return "descripcionUsuario";
