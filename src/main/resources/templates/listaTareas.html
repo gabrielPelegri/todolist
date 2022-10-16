@@ -4,6 +4,24 @@
 <head th:replace="fragments :: head (titulo='Login')"></head>
 
 <body>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/about">Acerca de</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link disabled" href="#">Tareas <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Features</a>
+                <a class="nav-item nav-link" href="#">Pricing</a>
+                <a class="nav-item nav-link disabled" href="#">Disabled</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
 <div class="container-fluid">
 
     <div class="row mt-3">
@@ -28,18 +46,20 @@
                     <td th:text="${tarea.titulo}"></td>
                     <td><a class="btn btn-primary btn-xs" th:href="@{/tareas/{id}/editar(id=${tarea.id})}"/>editar</a>
                         <button class="btn btn-danger btn-xs" onmouseover="" style="cursor: pointer;"
-                           th:onclick="'del(\'/tareas/' + ${tarea.id} + '\')'">borrar</button>
+                                th:onclick="'del(\'/tareas/' + ${tarea.id} + '\')'">borrar
+                        </button>
                     </td>
                 </tr>
                 </tbody>
             </table>
             <p><a class="btn btn-primary" th:href="@{/usuarios/{id}/tareas/nueva(id=${usuario.id})}"> Nueva tarea</a>
-            <a class="btn btn-link" href="/logout">Salir</a></p>
+                <a class="btn btn-link" href="/logout">Salir</a></p>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col">
-            <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${!#strings.isEmpty(mensaje)}">
+            <div class="alert alert-success alert-dismissible fade show" role="alert"
+                 th:if="${!#strings.isEmpty(mensaje)}">
                 <span th:text="${mensaje}"></span>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
